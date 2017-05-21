@@ -3,6 +3,7 @@ package me.armar.plugins.autorank.language;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.util.logging.Level;
 
 import org.bukkit.configuration.file.FileConfiguration;
@@ -68,7 +69,7 @@ public class LanguageHandler {
         // Look for defaults in the jar
         final InputStream defConfigStream = plugin.getResource("lang.yml");
         if (defConfigStream != null) {
-            final YamlConfiguration defConfig = YamlConfiguration.loadConfiguration(defConfigStream);
+            final YamlConfiguration defConfig = YamlConfiguration.loadConfiguration(new InputStreamReader(defConfigStream));
             languageConfig.setDefaults(defConfig);
         }
     }
